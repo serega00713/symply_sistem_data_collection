@@ -42,10 +42,6 @@ CREATE TABLE `pacient` (
 -- Дамп данных таблицы `pacient`
 --
 
-INSERT INTO `pacient` (`id`, `Name`, `Surname`, `Height`, `Weight`, `Blood`, `Date`) VALUES
-(1, 'Сергей', 'Халявкин', 180, 68, 'IV-', '2020-01-20'),
-(2, 'Елена', 'Халявкина', 154, 60, 'III+', '2020-02-02'),
-(132, 'dfgdfg', 'dfg', 234, 45, 'III-', '2020-02-14');
 
 --
 -- Индексы сохранённых таблиц
