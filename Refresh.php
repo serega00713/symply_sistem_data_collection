@@ -1,6 +1,10 @@
 <!doctype html>
 <html lang="ru">
 <head>
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
   <title>Редактирование</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
@@ -57,30 +61,33 @@
     }
   ?>
   <h2 class="text-center pt-3">Редактирование</h2>
-  <form action="" method="post">
-    <div class="container">
-      <ul>
-<li>Пациенты отсортированы по их ID;</li>
-<li>Редактирование осуществляется следующим образом:</li>
-<ol>
-<li>В таблице ниже выбирается пациент, данные которого надо отредактировать;</li>
-<li>Напротив его ID нажмите кнопку "Изменить";</li>
-<li>Автоматически заполнится форма с текущими данными - их можно изменить;</li>
-<li>Нажмите кнопку Сохранить изменения.</li>
-</ol>
-<li>Для удаления данных о пациенте:</li>
-<ol>
-<li>В таблице ниже выбирается пациент, информацию о котором надо удалить;</li>
-<li>Напротив его ID нажмите кнопку "Удалить";</li>
-<li>Данные пациента успешно удалены</li>
-</ol>
-</ul>
+  <div class="container">
+  <ul>
+  <li>Пациенты отсортированы по их ID;</li>
+  <li>Редактирование осуществляется следующим образом:</li>
+  <ol>
+  <li>В таблице ниже выбирается пациент, данные которого надо отредактировать;</li>
+  <li>Напротив его ID нажмите кнопку "Изменить";</li>
+  <li>Автоматически заполнится форма с текущими данными - их можно изменить;</li>
+  <li>Нажмите кнопку Сохранить изменения.</li>
+  </ol>
+  <li>Для удаления данных о пациенте:</li>
+  <ol>
+  <li>В таблице ниже выбирается пациент, информацию о котором надо удалить;</li>
+  <li>Напротив его ID нажмите кнопку "Удалить";</li>
+  <li>Данные пациента успешно удалены</li>
+  </ol>
+  </ul>
+  </div>
 
+  <form action="" method="post" class="needs-validation" novalidate>
+    <div class="container">
+      
       <div class="mb-3">
 
         <label>Имя</label>
 
-        <input type="text" class="form-control" name="Name" value="<?= isset($_GET['red_id']) ? $pacient['Name'] : ''; ?>">
+        <input type="text" class="form-control" name="Name" value="<?= isset($_GET['red_id']) ? $pacient['Name'] : ''; ?>" required>
 
       </div>
 
@@ -88,23 +95,25 @@
 
         <label>Фамилия</label>
 
-        <input type="text" class="form-control" name="Surname" value="<?= isset($_GET['red_id']) ? $pacient['Surname'] : ''; ?>">
+        <input type="text" class="form-control" name="Surname" value="<?= isset($_GET['red_id']) ? $pacient['Surname'] : ''; ?>" required>
 
       </div>
 
       <div class="mb-3">
 
-        <label>Рост</label>
+        <label>Рост(Число в сантиметрах не более 3 цифр)</label>
 
-        <input type="number" class="form-control" name="Height" value="<?= isset($_GET['red_id']) ? $pacient['Height'] : ''; ?>">
+        <input type="number" class="form-control" name="Height" value="<?= isset($_GET['red_id']) ? $pacient['Height'] : ''; ?>" min="1" max="999" required>
+        <div class="invalid-feedback">Требуется ввести Рост в нужной форме</div>
 
       </div>
 
       <div class="mb-3">
 
-        <label>Вес</label>
+        <label>Вес (Число в килограммах не более 3 цифр)</label>
 
-        <input type="number" class="form-control" name="Weight" value="<?= isset($_GET['red_id']) ? $pacient['Weight'] : ''; ?>">
+        <input type="number" class="form-control" name="Weight"  value="<?= isset($_GET['red_id']) ? $pacient['Weight'] : ''; ?>" min="1" max="999" required>
+        <div class="invalid-feedback">Требуется ввести Вес в нужной форме</div>
 
         </div>
 
@@ -112,15 +121,16 @@
 
         <label>Группа крови (Требуется ввести вручную пример: [IV+, III-])</label>
 
-        <input type="text" class="form-control" name="Blood" value="<?= isset($_GET['red_id']) ? $pacient['Blood'] : ''; ?>">
-
+        <input type="text" class="form-control" name="Blood" value="<?= isset($_GET['red_id']) ? $pacient['Blood'] : ''; ?>" required>
+        <div class="invalid-feedback">Требуется ввести группу крови согласно образцу</div>
       </div>  
 
       <div class="mt-3 mb-3">
 
         <label>Дата</label>
 
-        <input type="date" class="form-control" name="Date" value="<?= isset($_GET['red_id']) ? $pacient['Date'] : ''; ?>">
+        <input type="date" class="form-control" name="Date" value="<?= isset($_GET['red_id']) ? $pacient['Date'] : ''; ?>" required>
+        <div class="invalid-feedback">Требуется ввести Дату осмотра.</div>
 
       </div>
 
@@ -160,6 +170,7 @@
 </div>
 <p><a href="MainForm.html" class="btn btn-primary btn-lg btn-block"">Добавить нового пациента</a></p>
 <p><a href="MainMenu.html" class="btn btn-primary btn-lg btn-block"">Вернуться на главную</a></p>
-</div> 
+</div>
+<script>(function() {'use strict'; window.addEventListener('load', function() { var forms = document.getElementsByClassName('needs-validation'); var validation = Array.prototype.filter.call(forms, function(form) { form.addEventListener('submit', function(event) { if (form.checkValidity() === false) { event.preventDefault(); event.stopPropagation(); } form.classList.add('was-validated'); }, false); }); }, false); })();</script>
 </body>
 </html>

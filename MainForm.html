@@ -38,9 +38,9 @@
 
 <div class="mb-3">
 
-<label>ID (номер полиса - 11 цифр)</label>
+<label>ID (номер полиса -  максимум 16 цифр)</label>
 
-<input type="number" class="form-control" placeholder="ID" name="ID" required>
+<input type="number" class="form-control" placeholder="ID" name="ID" max="9999999999999999" required>
 
 <div class="invalid-feedback">Требуется ввести ID в указанном формате</div>
 
@@ -70,7 +70,7 @@
 
 <label>Рост(Число в сантиметрах не более 3 цифр)</label>
 
-<input type="number" class="form-control" placeholder="Рост" name="Height" required>
+<input type="number" class="form-control" placeholder="Рост" name="Height"  min="1" max="999" required>
 
 <div class="invalid-feedback">Требуется ввести Рост в нужной форме</div>
 
@@ -80,7 +80,7 @@
 
 <label>Вес (Число в килограммах не более 3 цифр)</label>
 
-<input type="number"  class="form-control" placeholder="Вес" name="Weight" required>
+<input type="number"  class="form-control" placeholder="Вес" name="Weight" min="1" max="999" required>
 
 <div class="invalid-feedback">Требуется ввести Вес в нужной форме</div>
 
