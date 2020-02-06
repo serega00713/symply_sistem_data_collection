@@ -96,7 +96,7 @@
 
         <label>Рост</label>
 
-        <input type="text" class="form-control" name="Height" value="<?= isset($_GET['red_id']) ? $pacient['Height'] : ''; ?>">
+        <input type="number" class="form-control" name="Height" value="<?= isset($_GET['red_id']) ? $pacient['Height'] : ''; ?>">
 
       </div>
 
@@ -104,7 +104,7 @@
 
         <label>Вес</label>
 
-        <input type="text" class="form-control" name="Weight" value="<?= isset($_GET['red_id']) ? $pacient['Weight'] : ''; ?>">
+        <input type="number" class="form-control" name="Weight" value="<?= isset($_GET['red_id']) ? $pacient['Weight'] : ''; ?>">
 
         </div>
 
